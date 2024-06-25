@@ -16,30 +16,40 @@ public class AccountService {
     public AccountDTO getAccount(Integer id){
         Account account = repoAccount.getAccountById(id);
         return account==null?
-                                null:
-                                new AccountDTO(account.getReceiveEmails(),account.getReceivePush(),
-                                        account.getAllowDataShare(), account.getProfileVisibility(),
-                                        account.getTransactionHistoryVisible(),account.getWantToReceiveMarketing());
+                            null:
+                                new AccountDTO(account.getReceiveEmails(),
+                                               account.getReceivePush(),
+                                               account.getAllowDataShare(),
+                                               account.getProfileVisibility(),
+                                               account.getTransactionHistoryVisible(),
+                                               account.getWantToReceiveMarketing());
     }
     public AccountDTO setAccount(Integer id, AccountDTO accountDTO){
         Boolean hasAlreadyAccount = repoAccount.getAccountById(id)!=null;
         if(hasAlreadyAccount){
             return null;
         }
-        Account account = repoAccount.setPreferences(accountDTO.receiveEmails(),accountDTO.receivePush(),
-                                                         accountDTO.allowDataShare(),accountDTO.profileVisibility(),
-                                                         accountDTO.transactionHistoryVisible(),
-                                                         accountDTO.wantToReceiveMarketing(), id);
+        Account account = repoAccount.setPreferences(accountDTO.receiveEmails(),
+                                                     accountDTO.receivePush(),
+                                                     accountDTO.allowDataShare(),
+                                                     accountDTO.profileVisibility(),
+                                                     accountDTO.transactionHistoryVisible(),
+                                                     accountDTO.wantToReceiveMarketing(),
+                                                     id);
         return new AccountDTO(account.getReceiveEmails(),account.getReceivePush(),
                               account.getAllowDataShare(), account.getProfileVisibility(),
-                              account.getTransactionHistoryVisible(),account.getWantToReceiveMarketing());
+                              account.getTransactionHistoryVisible(),
+                              account.getWantToReceiveMarketing());
     }
 
     public AccountDTO updatePreferences(Integer id, AccountDTO accountDTO){
-        Account account = repoAccount.updatePreferences(accountDTO.receiveEmails(),accountDTO.receivePush(),
-                                                        accountDTO.allowDataShare(),accountDTO.profileVisibility(),
+        Account account = repoAccount.updatePreferences(accountDTO.receiveEmails(),
+                                                        accountDTO.receivePush(),
+                                                        accountDTO.allowDataShare(),
+                                                        accountDTO.profileVisibility(),
                                                         accountDTO.transactionHistoryVisible(),
-                                                        accountDTO.wantToReceiveMarketing(), id);
+                                                        accountDTO.wantToReceiveMarketing(), 
+                                                        id);
         return account==null?
                 null:
                 new AccountDTO(account.getReceiveEmails(),account.getReceivePush(),

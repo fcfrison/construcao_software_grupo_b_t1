@@ -39,8 +39,10 @@ public class RepoAccountInMemory implements IRepoAccount {
     }
 
     @Override
-    public Account setPreferences(Boolean receiveEmails, Boolean receivePush, Boolean allowDataShare, Boolean profileVisibility,
-                                  Boolean transactionHistoryVisible, Boolean wantToReceiveMarketing, Integer id) {
+    public Account setPreferences(Boolean receiveEmails, Boolean receivePush,
+                                  Boolean allowDataShare, Boolean profileVisibility,
+                                  Boolean transactionHistoryVisible, Boolean wantToReceiveMarketing,
+                                  Integer id) {
         Account account = new Account(receiveEmails, receivePush, allowDataShare, profileVisibility,
                                       transactionHistoryVisible, wantToReceiveMarketing, id);
         accountList.add(account);
@@ -48,8 +50,10 @@ public class RepoAccountInMemory implements IRepoAccount {
     }
 
     @Override
-    public Account updatePreferences(Boolean receiveEmails, Boolean receivePush, Boolean allowDataShare, Boolean profileVisibility,
-                                     Boolean transactionHistoryVisible, Boolean wantToReceiveMarketing, Integer id) {
+    public Account updatePreferences(Boolean receiveEmails, Boolean receivePush, 
+                                     Boolean allowDataShare, Boolean profileVisibility,
+                                     Boolean transactionHistoryVisible, Boolean wantToReceiveMarketing,
+                                     Integer id) {
 
         Account account = getAccountById(id);
         if(account!=null){
