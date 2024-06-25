@@ -21,6 +21,14 @@ resource "aws_instance" "example" {
   }
 }
 
+# Check if the security group already exists
+data "aws_security_group" "existing_sg" {
+  name = "allow_8080"
+  
+  # This prevents Terraform from erroring if the security group doesn't exist
+  count = 0
+}
+
 resource "aws_security_group" "allow_8080" {
   name        = "allow_8080"
   description = "Allow TCP 8080 inbound traffic"
@@ -42,5 +50,9 @@ resource "aws_security_group" "allow_8080" {
 
   tags = {
     Name = "allow_8080"
+  }
+  lifecycle {
+    create_before_destroy = true
+    ignore_changes = [name]
   }
 }
