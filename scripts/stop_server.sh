@@ -8,6 +8,6 @@ if sudo docker ps -q --filter "name=const_softw_app" | grep -q .; then
     sudo docker rm -v const_softw_app
 else
     echo "No const_softw container running"
-fi
+fi 
 
 echo "Application stopped"
