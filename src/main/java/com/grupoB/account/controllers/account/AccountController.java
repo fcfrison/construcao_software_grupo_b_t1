@@ -18,6 +18,11 @@ public class AccountController {
     public AccountController(AccountService accountService){
         this.accountService = accountService;
     }
+
+    @GetMapping("/testdeploy")
+    public String testDeploy() {
+        return "Deploy com terraform";
+    }
     @GetMapping("/preferences")
     public ResponseEntity<?> getAccount(@RequestParam("id") Integer id){
         AccountDTO accountDTO = accountService.getAccount(id);
