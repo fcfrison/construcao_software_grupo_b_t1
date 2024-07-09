@@ -13,7 +13,7 @@ else
 fi
 
 # Navigate to the directory containing the Dockerfile
-cd /home/ubuntu
+# cd /home/ubuntu
 
 # Check if Dockerfile exists
 if [ ! -f "Dockerfile" ]; then
