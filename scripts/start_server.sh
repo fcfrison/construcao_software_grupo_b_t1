@@ -4,7 +4,16 @@ if [ ! -f "Dockerfile" ]; then
     echo "Error: Dockerfile not found in $PWD"
     exit 1
 fi
+# Stop the running container
+if sudo docker ps -q --filter "name=const_softw_app" | grep -q .; then
+    echo "Stopping const_soft_app container"
+    sudo docker kill const_soft_app
+    sudo docker rm -v const_soft_app
+else
+    echo "No const_softw container running"
+fi
 
+echo "Application stopped"
 # Build the Docker image
 sudo docker build -t const_softw:latest .
 
