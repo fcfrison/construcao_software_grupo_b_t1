@@ -1,4 +1,5 @@
 #!/bin/bash
+cd /home/ubuntu
 if [ ! -f "Dockerfile" ]; then
     echo "Error: Dockerfile not found in $PWD"
     exit 1
