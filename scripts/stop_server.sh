@@ -11,4 +11,3 @@ else
 fi 
 
 echo "Application stopped" 
-echo "test"
