@@ -10,4 +10,4 @@ else
     echo "No const_softw container running"
 fi 
 
-echo "Application stopped" 
+echo "Application stopped"
