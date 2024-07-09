@@ -16,10 +16,10 @@ fi
 # cd /home/ubuntu
 
 # Check if Dockerfile exists
-if [ ! -f "Dockerfile" ]; then
-    echo "Error: Dockerfile not found in /home/ubuntu"
-    exit 1
-fi
+#if [ ! -f "Dockerfile" ]; then
+#    echo "Error: Dockerfile not found in $PWD"
+#    exit 1
+#fi
 
 # Build the Docker image
 sudo docker build -t const_softw:latest .
