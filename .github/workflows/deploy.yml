@@ -48,7 +48,7 @@ jobs:
           working-directory: ./infra
 
         - name: Terraform Apply
-          run: terraform apply --auto-approve -var="docker_account=${{ secrets.DOCKERHUB_USERNAME }}"
+          run: terraform apply --auto-approve
           working-directory: ./infra
 
   push-image:
