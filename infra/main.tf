@@ -1,7 +1,7 @@
 provider "aws" {
   region = "us-east-1"
 }
-variable "DOCKERHUB_USERNAME" {
+variable "docker_account" {
   description = "Docker account name"
   type        = string
 }
@@ -142,8 +142,8 @@ resource "aws_instance" "example" {
               dpkg-deb -b codedeploy-agent_1.3.2-1902_ubuntu22/
               sudo dpkg -i codedeploy-agent_1.3.2-1902_ubuntu22.deb
               sudo systemctl list-units --type=service | grep codedeploy
-              sudo docker pull ${var.DOCKERHUB_USERNAME}/account:latest
-              docker run -d --name myapp -p 8080:8080 -e DATABASE_URL=jdbc:postgresql://${aws_db_instance.postgres.address}:5432/postgres ${var.DOCKERHUB_USERNAME}/account
+              sudo docker pull ${var.docker_account}/account:latest
+              docker run -d --name myapp -p 8080:8080 -e DATABASE_URL=jdbc:postgresql://${aws_db_instance.postgres.address}:5432/postgres ${var.docker_account}/account
               EOF
 
   tags = {
