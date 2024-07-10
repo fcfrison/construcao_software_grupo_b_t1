@@ -1,10 +1,6 @@
 provider "aws" {
   region = "us-east-1"
 }
-variable "docker_account" {
-  description = "Docker account name"
-  type        = string
-}
 
 resource "aws_key_pair" "deployer-key" {
   key_name   = "my-existing-key"
