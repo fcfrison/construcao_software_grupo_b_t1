@@ -48,7 +48,7 @@ jobs:
           working-directory: ./infra
 
         - name: Terraform Apply
-          run: terraform apply --auto-approve
+          run: terraform apply --auto-approve -var="docker_account=${{ secrets.DOCKERHUB_USERNAME }}"
           working-directory: ./infra
 
   push-image:
@@ -71,7 +71,7 @@ jobs:
           run: |
             export DOCKER_BUILDKIT=0
             export COMPOSE_DOCKER_CLI_BUILD=0
-          tags: felipefrison/account:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/account:latest
 
   deploy:
     name: Deploy to AWS CodeDeploy
