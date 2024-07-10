@@ -48,7 +48,7 @@ jobs:
           working-directory: ./infra
 
         - name: Terraform Apply
-          run: terraform apply --auto-approve
+          run: terraform apply --auto-approve -var="DOCKERHUB_USERNAME=${{ secrets.DOCKERHUB_USERNAME }}"
           working-directory: ./infra
 
   push-image:
